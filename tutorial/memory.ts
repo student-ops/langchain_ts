@@ -3,7 +3,7 @@ import { BufferMemory } from "langchain/memory";
 import { ConversationChain } from "langchain/chains";
 
 async function main(){
-  const model = new OpenAI({});
+  const model = new OpenAI({ streaming: true });
   const memory = new BufferMemory();
   const chain = new ConversationChain({ llm: model, memory: memory });
   const res1 = await chain.call({ input: "Hi! I'm Jim." });
