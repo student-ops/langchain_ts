@@ -13,7 +13,7 @@ async function main(){
 
   var key =process.env.OPENAI_API_KEY
   // console.log(key)
-  const model = new OpenAI({ openAIApiKey: key, temperature: 0.9 });
+  const model = new OpenAI({ openAIApiKey: key, temperature: 0.9,streaming: true });
   const chain = new LLMChain({ llm: model, prompt: prompt });
   const res = await chain.call({ product: "colorful socks" });
   console.log(res);
