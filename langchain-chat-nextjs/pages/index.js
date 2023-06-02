@@ -105,7 +105,7 @@ export default function Home() {
       </Head>
       <div className={styles.topnav}>
       <div className = {styles.navlogo}>
-    <a href="/">LangChain</a>
+    <a href="/">LangChain with Maemura labo</a>
     </div>
     <div className = {styles.navlinks}>
     <a href="https://langchain.readthedocs.io/en/latest/" target="_blank">Docs</a>
