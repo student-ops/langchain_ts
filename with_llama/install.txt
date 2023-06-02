@@ -1,0 +1,4 @@
+pip3 install langchain
+pip3 install openai
+pip3 install tiktoken
+pip3 install llama-index==0.6.4
