@@ -3,16 +3,15 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { GithubRepoLoader } from "langchain/document_loaders/web/github";
 
 import * as fs from "fs";
-async funciton run () {
+
+async function run() {
   const loader = new GithubRepoLoader(
     "https://github.com/hwchase17/langchainjs",
     { branch: "main", recursive: false, unknown: "warn" }
   );
   const docs = await loader.load();
-  reuturn docs;
+  return docs;
 };
-
-
 
 async function main() {
   const model = new OpenAI({ temperature: 0 });
@@ -23,8 +22,9 @@ async function main() {
   // Split the text into chunks
   const textSplitter = new RecursiveCharacterTextSplitter({ chunkSize: 1000 });
   const docs = await textSplitter.createDocuments([text]);
-  run();
+  const github_res = await run();
   console.log(docs);
+  console.log(github_res);
 
   // Create the vector store
   // const vectorStore = await HNSWLib.fromDocuments(docs, new OpenAIEmbeddings());

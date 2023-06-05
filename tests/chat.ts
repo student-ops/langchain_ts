@@ -18,7 +18,9 @@ async function main() {
   const docs = await textSplitter.createDocuments([text]);
 
   // Create the vector store
+  // const vectorStore = await HNSWLib.fromDocuments(docs, new OpenAIEmbeddings());
   const vectorStore = await HNSWLib.fromDocuments(docs, new OpenAIEmbeddings());
+
 
   // Create the chain
   const chain = VectorDBQAChain.fromLLM(model, vectorStore);
